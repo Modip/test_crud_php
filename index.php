@@ -1,7 +1,6 @@
 <?php
-
     require_once("connect.php");
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,7 +11,7 @@
 </head>
 <body>
     <h3>Ajout de contact</h3>
-    <?php include('message.php')?>
+
     <div class="center" id= "center">
         <div class="boutton" id="boutton">
             <button type="text" class="ajout" onclick=" return showForm()"> Ajouter </button>           
@@ -49,7 +48,6 @@
            
             while($categorie=$categories->fetch())
             { 
-                
 
             ?>    
                 <option value="<?=$categorie['id'] ?>" class="clp"><?=$categorie['nom'] ?></option> 

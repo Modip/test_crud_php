@@ -13,7 +13,13 @@ body {
     color: black;
 }
 .main{
+
     display: flex;
+}
+.main-content{
+    position: relative;
+    width: 100%;
+   
 }
 
 .sidebar{
@@ -23,12 +29,16 @@ body {
     left: 0;
     bottom: 0;
     height: 100vh;
-    width: 220px;
+    width: 90px;
     padding: 0 1.7rem;
     padding: 0;
     overflow: hidden;
     transition: all 0.5s;
 
+}
+
+.sidebar:hover{
+    width: 250px;
 }
 
 
@@ -115,20 +125,23 @@ h3{
 
 .update{ 
     background-color: orange;
-    padding-right: 10px;
-    padding-left: 10px;
-    color: white;
-    border-radius: 2rem; 
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px;
+   
+    color: whitesmoke;
+    border-radius: 6px; 
     cursor: pointer;
 }
 
 .delete{ 
     background-color: orangered;
-    padding-right: 10px;
-    padding-left: 10px;
-    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px;
+    color: whitesmoke;
     cursor: pointer;
-    border-radius: 2rem;
+    border-radius: 6px;
 }
 
 label {
@@ -251,18 +264,25 @@ table, td, th{
 th{
     background-color: rgb(85, 111, 197);
 }
+
+
 .header{
 
-    background: #efefef;
+    background: rgb(221, 220, 220);
     position: relative;
-    width: 100%;
-    height: 90px;
+    width: 98%;
+    height: 70px;
     margin: 15px;
-    border-radius: 10px;
+    border-radius: 15px;
    
 }
 .header-title{
+    padding: 0.5rem;
     color: rgb(85, 111, 197);
+}
+.header-span{
+    margin: 10px;
+    
 }
 .main-header{
     display: flex;
@@ -270,8 +290,9 @@ th{
     position: relative;
     width: 100%;
 }
+
 .header-search{
-  
+    height: 50px;
     display: flex;
     justify-content: space-between;
     margin: 10px;
@@ -282,18 +303,27 @@ th{
     width: 50px;
     height: 50px;
     border-radius: 8px;
+    margin-left: 10px;
 }
 .search-box{
+  
+    background: rgb(177, 191, 238);
+    color: rgb(113, 99, 252);
     display: flex;
     align-items: center;
-    padding: 4px 12px;
-    gap: 1;
+    padding: 2px 12px;
+    gap: 3px;
+    border-radius: 15px;
 }
 
-.search-box input{
+.search-input{
     background: transparent;
-    padding: 10px;
+    width: 100px;
+   color: rgb(177, 191, 238);
+   
 }
+  
+
 
 .search-box i{
     cursor: pointer;
@@ -304,4 +334,37 @@ th{
 
 .search-box i:hover{
     transform: scaleY(1.2);
+}
+
+
+.card-content{
+    position: relative;
+    height: 200px; background: rgb(221, 220, 220); 
+    margin: 15px;
+    border-radius: 15px;
+    width: 98%;
+}
+
+.card-box{
+    background: rgb(177, 191, 238);
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-contact{
+    background: rgb(221, 220, 220);
+    position: relative;
+    width: 98%;
+    margin: 15px;
+    border-radius: 15px;
+}
+
+table{
+    width: 98%;
+    margin: 10px;
+    padding: 10px;
 }
