@@ -1,5 +1,5 @@
 <?php
-    session_start();
+
     require_once("connect.php");
     ?>
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/style.css">
-    <title>Test</title>
+    <title>Accueil</title>
 </head>
 <body>
     <h3>Ajout de contact</h3>
@@ -49,7 +49,8 @@
            
             while($categorie=$categories->fetch())
             { 
-         
+                
+
             ?>    
                 <option value="<?=$categorie['id'] ?>" class="clp"><?=$categorie['nom'] ?></option> 
 
@@ -85,30 +86,36 @@
             </thead>
             <?php
            
-                $list = $pdo->prepare("SELECT * FROM contact");
-                
-                $list->execute();
-                while($affiche=$list->fetch())
+                $query = $pdo->prepare("SELECT * FROM contact");
+                $query->execute();
+
+                while($contact=$query->fetch())
                 { 
+
+                    $categorie_id=$contact['categorie_id'];
+
+                    $query_categorie = $pdo->prepare("SELECT * FROM categorie WHERE id= $categorie_id");
+                    $query_categorie->execute();
+                    $result_categorie = $query_categorie->fetch();
+                
             ?>
                    <tr>
-                        <th > <?=$affiche['id'] ?></th>
-                        <td> <?=$affiche['prenom'] ?></td>
-                        <td> <?=$affiche['nom'] ?></td>
-                        <td> <?=$affiche['nin'] ?></td>
-                        <td> <?=$affiche['phone'] ?></td>
-                        <td> <?=$affiche['email'] ?></td>
-                        <td> <?=$affiche['categorie_id'] ?></td>
+                        <td> <?=$contact['id'] ?></th>
+                        <td> <?=$contact['prenom'] ?></td>
+                        <td> <?=$contact['nom'] ?></td>
+                        <td> <?=$contact['nin'] ?></td>
+                        <td> <?=$contact['phone'] ?></td>
+                        <td> <?=$contact['email'] ?></td>
+                        <td> <?=$result_categorie['nomCat']?></td>
                          
                         <td> 
-                            <a href="contact-edit.php? id=<?=$affiche['id']; ?>" class="update" > Modifier</a>
+                            <a href="contact-edit.php? id=<?=$contact['id']; ?>" class="update" > Modifier</a>
                         </td>
                         <td> 
                             <form action="formularhandler.php" method="post">
-                                <button type="submit" name="delete-contact" class="delete" value="<?=$affiche['id'];?>">Supprimer</button>
+                                <button type="submit" name="delete-contact" class="delete" value="<?=$contact['id'];?>">Supprimer</button>
                             </form>
                         </td>
-                    
                    </tr>
               <?php  } ?>
         </table>

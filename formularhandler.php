@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("autoloader.php");
 
 // Add Contact
@@ -10,9 +9,6 @@ if(isset($_POST["valider"])) {
     $phone = $_POST["phone"];
     $email = $_POST["email"];
     $categorie_id= $_POST["categorie_id"];
-
-   
-   
 
     $sql = "INSERT INTO contact (nom, prenom, nin, phone, email,categorie_id) VALUES (?, ?, ?, ?,?,?)";
     $stmt= $pdo->prepare($sql);
@@ -36,8 +32,7 @@ if(isset($_POST["update_contact"])) {
     $sql = "UPDATE contact SET nom=:nom, prenom=:prenom, nin=:nin, phone=:phone, email=:email, categorie_id=:categorie_id WHERE id=:cont_id LIMIT 1";
     $stmt = $pdo->prepare($sql);
 
-        
-        
+
         $data = [
             ':cont_id' => $contact_id,
             ':nom' => $nom,
@@ -48,9 +43,9 @@ if(isset($_POST["update_contact"])) {
             ':categorie_id' => $categorie_id
             
         ];
+
         $result = $stmt->execute($data);
 
-  
         redirect("index.php");
 }
 
