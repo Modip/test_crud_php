@@ -102,55 +102,56 @@
             
             <div class="table-contact">
                 <div class="contact-list">
-                <div class="header-title">
-                    <span class="header-span">Liste des contacts</span>
-                </div>
-                <table>
-            <thead>
-                <th>Id</th>
-                <th>Prenom</th>
-                <th>Nom</th>
-                <th>NIN</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Catégories</th>
-                <th>Action</th>
-                <th>Action</th>
-            </thead>
-            <?php
-           
-                $query = $pdo->prepare("SELECT * FROM contact");
-                $query->execute();
+                    <div class="header-title">
+                        <span class="header-span">Liste des contacts</span>
+                    </div>
+               
+                    <table>
+                <thead>
+                    <th>Id</th>
+                    <th>Prenom</th>
+                    <th>Nom</th>
+                    <th>NIN</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Catégories</th>
+                    <th>Action</th>
+                    <th>Action</th>
+                </thead>
+                <?php
+            
+                    $query = $pdo->prepare("SELECT * FROM contact");
+                    $query->execute();
 
-                while($contact=$query->fetch())
-                { 
+                    while($contact=$query->fetch())
+                    { 
 
-                    $categorie_id=$contact['categorie_id'];
+                        $categorie_id=$contact['categorie_id'];
 
-                    $query_categorie = $pdo->prepare("SELECT * FROM categorie WHERE id= $categorie_id");
-                    $query_categorie->execute();
-                    $result_categorie = $query_categorie->fetch();
-                
-            ?>
-                   <tr>
-                        <td> <?=$contact['id'] ?></th>
-                        <td> <?=$contact['prenom'] ?></td>
-                        <td> <?=$contact['nom'] ?></td>
-                        <td> <?=$contact['nin'] ?></td>
-                        <td> <?=$contact['phone'] ?></td>
-                        <td> <?=$contact['email'] ?></td>
-                        <td> <?=$result_categorie['nomCat']?></td>
-                         
-                        <td> 
-                            <a href="contact-edit.php? id=<?=$contact['id']; ?>" class="update" > Modifier</a>
-                        </td>
-                        <td> 
-                            <form action="formularhandler.php" method="post">
-                                <button type="submit" name="delete-contact" class="delete" value="<?=$contact['id'];?>">Supprimer</button>
-                            </form>
-                        </td>
-                   </tr>
-              <?php  } ?>
+                        $query_categorie = $pdo->prepare("SELECT * FROM categorie WHERE id= $categorie_id");
+                        $query_categorie->execute();
+                        $result_categorie = $query_categorie->fetch();
+                    
+                ?>
+                    <tr>
+                            <td> <?=$contact['id'] ?></th>
+                            <td> <?=$contact['prenom'] ?></td>
+                            <td> <?=$contact['nom'] ?></td>
+                            <td> <?=$contact['nin'] ?></td>
+                            <td> <?=$contact['phone'] ?></td>
+                            <td> <?=$contact['email'] ?></td>
+                            <td> <?=$result_categorie['nomCat']?></td>
+                            
+                            <td> 
+                                <a href="contact-edit.php? id=<?=$contact['id']; ?>" class="update" > Modifier</a>
+                            </td>
+                            <td> 
+                                <form action="formularhandler.php" method="post">
+                                    <button type="submit" name="delete-contact" class="delete" value="<?=$contact['id'];?>">Supprimer</button>
+                                </form>
+                            </td>
+                    </tr>
+                <?php  } ?>
         </table>
                 </div>
             </div>
