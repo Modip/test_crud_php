@@ -15,7 +15,7 @@
 <body>
     <div class="main">
         <div class="sidebar">
-            <div class="logo"><h4>Je suis le logo</h4></div>
+            <div class="logo"></div>
             <ul class="menu">
                 <li class="active">
                     <a href="#">
@@ -35,7 +35,7 @@
                 <li class="logout">
                     <a href="#" >
                     <i class="fa fa-sign-out-alt"></i>
-                    <span>Logout</span></a>
+                    <span>Deconnexion</span></a>
                 </li>
             </ul>
         </div>
@@ -59,13 +59,42 @@
             </div>
             <div class="card-content">
                 <div class="card">
-                <div class="header-title">
-                    <span class="header-span">Today's contacts</span>
-                </div>
+                    <div class="header-title">
+                        <span class="header-span">Categories de contacts</span>
+                    </div>
+                    <div class="box-content">
                     <div class="card-box">
-                        <h4>Payement</h4>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                            Commodi, ex obcaecati similique.</p>
+                        <div class="box">
+                            <p> 138 </p>
+                            <span>Salariés</span>
+                            <i class="fa fa-users box-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="card-box">
+                        <div class="box">
+                            <p> 88 </p>
+                            <span>Entrepreneurs</span>
+                            <i class="fa fa-digging box-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="card-box">
+                            <div class="box">
+                                <p>188 </p>
+                                <span>Non salariés</span>
+                                <i class="fa fa-shopping-bag box-icon"></i>
+                            </div>
+                        </div>
+
+                        <div class="card-box">
+                            <div class="box">
+                                <p>898 </p>
+                                <span>Etudiants</span>
+                                <i class="fa fa-tasks box-icon"></i>
+                            </div>
+                        </div>
+
                     </div>
                     
                 </div>
@@ -74,7 +103,7 @@
             <div class="table-contact">
                 <div class="contact-list">
                 <div class="header-title">
-                    <span class="header-span">List of contacts</span>
+                    <span class="header-span">Liste des contacts</span>
                 </div>
                 <table>
             <thead>
